@@ -1,7 +1,7 @@
 name: Level 4a - Branch specific push
 
 on: 
-    push:
+    pull_request:
         branches:
             - main
 
