@@ -1,0 +1,19 @@
+name: Level 2 - Checkout and Run
+
+on: push
+
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+            
+            - name: List files
+              run: ls -la
+
+            - name: Print file contents
+              run: cat app.py
+              
+
+
