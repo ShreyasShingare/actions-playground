@@ -1,0 +1,15 @@
+name: Level 4a - Branch specific push
+
+on: 
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Greet
+              run: echo "Hello World from main branch"
+
+              
