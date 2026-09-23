@@ -1,0 +1,26 @@
+name: Level 8 - Conditionals
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Only run on main branch
+              if: github.ref == 'refs/heads/main'
+              run: echo "This is main branch"
+
+            - name: checking prev step
+              if: failure()
+              run: echo "something went wrong in the previous step"
+
+            - name: force failed step
+              run: exit 1
+
+            - name: Only run if previous step failed
+              if: failure()
+              run: echo "Something broke"
+
+            - name: Always run (eg. cleanup activities)
+              if: always()
+              run: echo "This will always run"
