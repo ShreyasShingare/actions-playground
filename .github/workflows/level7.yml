@@ -14,3 +14,6 @@ jobs:
               with:
                 python-version: ${{ matrix.python-version }}
             - run: python --version
+
+            - name: top command
+              run: top -b -n 1 | head -n 10
