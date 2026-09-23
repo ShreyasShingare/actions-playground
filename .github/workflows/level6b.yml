@@ -1,0 +1,12 @@
+name: Level 6 - Secrets
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        env:
+            APP_ENV: production
+        steps:
+            - name: Use a secret
+              run: echo "The Secret is ${{ secrets.MY_TEST_SECRET }}"
