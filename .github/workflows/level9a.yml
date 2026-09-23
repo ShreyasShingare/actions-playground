@@ -1,0 +1,31 @@
+name: Level 9a - Pass a file between jobs
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Create build output
+              run: echo "Build Output..." > output.txt
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with: 
+                name: my-output
+                path: output.txt
+
+    use-artifact:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - name: Download Artifact
+              uses: actions/download-artifact@v4
+              with:
+                name: my-output
+            - name: Display Artifact Content
+              run: cat output.txt
+              
