@@ -12,11 +12,16 @@ jobs:
             - name: Create build output
               run: echo "Build Output..." > output.txt
 
+            - name: Creating new build output
+              run: echo "New Build Output..." > output2.txt
+
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
               with: 
                 name: my-output
-                path: output.txt
+                path: | 
+                  output.txt
+                  output2.txt
 
     use-artifact:
         runs-on: ubuntu-latest
@@ -27,5 +32,7 @@ jobs:
               with:
                 name: my-output
             - name: Display Artifact Content
-              run: cat output.txt
-              
+              run: |
+                cat output.txt
+                cat output2.txt
+                
