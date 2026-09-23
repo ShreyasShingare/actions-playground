@@ -1,0 +1,12 @@
+name: Level 6 - Environment Variables
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        env:
+            APP_ENV: production
+        steps:
+            - name: Print env variable
+              run: echo "RUnning in $APP_ENV mode"
