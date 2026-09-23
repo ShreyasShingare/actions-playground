@@ -36,3 +36,6 @@ jobs:
                 cat output.txt
                 cat output2.txt
                 
+# Because each job runs on a fresh, separate 
+# runner — nothing persists between jobs unless 
+# you explicitly pass it along.
