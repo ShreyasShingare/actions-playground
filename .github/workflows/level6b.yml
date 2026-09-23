@@ -10,3 +10,6 @@ jobs:
         steps:
             - name: Use a secret
               run: echo "The Secret is ${{ secrets.MY_TEST_SECRET }}"
+
+
+# So Env variables get printed in the logs, but secrets do not. You can use secrets to store sensitive information like API keys, passwords, etc.
